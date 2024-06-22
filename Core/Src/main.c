@@ -48,9 +48,13 @@ UART_HandleTypeDef huart1;
 void on_data_received(UART_HandleTypeDef *config_it);
 
 //string is set as volatile because it will be used in interrupt mode
+//variable for the string to store the name
 volatile char str[100];
+
+//variable for the index in the string
 volatile uint8_t str_index = 0;
 
+//variable to store the received byte to determine if it is Enter button or not
 volatile char ByteReceived;
 
 /* USER CODE BEGIN PV */
@@ -124,7 +128,6 @@ int main(void) {
 
 	//initialize PIN 13 on PORT C
 	HAL_GPIO_Init(GPIOC, &PC13);
-
 
 	/* USER CODE END 2 */
 
