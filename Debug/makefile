@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (10.3-2021.10)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -34,26 +34,26 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Lec14_UART_task
+BUILD_ARTIFACT_NAME := Lec14_UART_DMA
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Lec14_UART_task.elf \
+Lec14_UART_DMA.elf \
 
 MAP_FILES += \
-Lec14_UART_task.map \
+Lec14_UART_DMA.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-Lec14_UART_task.list \
+Lec14_UART_DMA.list \
 
 OBJCOPY_HEX += \
-Lec14_UART_task.hex \
+Lec14_UART_DMA.hex \
 
 
 # All Target
@@ -61,11 +61,11 @@ all:
 	+@$(MAKE) --no-print-directory main-build && $(MAKE) --no-print-directory post-build
 
 # Main-build Target
-main-build: Lec14_UART_task.elf secondary-outputs
+main-build: Lec14_UART_DMA.elf secondary-outputs
 
 # Tool invocations
-Lec14_UART_task.elf Lec14_UART_task.map: $(OBJS) $(USER_OBJS) D:\embedded\ software\ for\ ramy\ sorial\STM\L14\ task\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Lec14_UART_task.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\embedded software for ramy sorial\STM\L14 task\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lec14_UART_task.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Lec14_UART_DMA.elf Lec14_UART_DMA.map: $(OBJS) $(USER_OBJS) D:\embedded\ software\ for\ ramy\ sorial\STM\UART_DMA\STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Lec14_UART_DMA.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\embedded software for ramy sorial\STM\UART_DMA\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Lec14_UART_DMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -74,23 +74,23 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Lec14_UART_task.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Lec14_UART_task.list"
+Lec14_UART_DMA.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Lec14_UART_DMA.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Lec14_UART_task.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Lec14_UART_task.hex"
+Lec14_UART_DMA.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Lec14_UART_DMA.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Lec14_UART_task.elf Lec14_UART_task.hex Lec14_UART_task.list Lec14_UART_task.map default.size.stdout
+	-$(RM) Lec14_UART_DMA.elf Lec14_UART_DMA.hex Lec14_UART_DMA.list Lec14_UART_DMA.map default.size.stdout
 	-@echo ' '
 
 post-build:
-	arm-none-eabi-objcopy -O ihex Lec14_UART_task.elf Lec14_UART_task.hex
+	arm-none-eabi-objcopy -O ihex Lec14_UART_DMA.elf Lec14_UART_DMA.hex
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
